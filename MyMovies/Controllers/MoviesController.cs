@@ -20,35 +20,35 @@ namespace MyMovies.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string searchString)
+        // GET: Movies
+public async Task<IActionResult> Index(string id)
+{
+    try
+    {
+        // Check if _context.Movie is null or not
+        if (_context.Movie == null)
         {
-            try
-            {
-                // Ensure the movie entity set is not null
-                if (_context.Movie == null)
-                {
-                    return Problem("Entity set 'MyMoviesContext.Movie' is null.");
-                }
-
-                // Retrieve all movies
-                var movies = from m in _context.Movie
-                             select m;
-
-                // Filter movies based on the search string
-                if (!String.IsNullOrEmpty(searchString))
-                {
-                    movies = movies.Where(s => s.Title.Contains(searchString));
-                }
-
-                // Return the filtered movies to the view
-                return View(await movies.ToListAsync());
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions, log, or return an error view as needed
-                return Problem($"An error occurred: {ex.Message}");
-            }
+            return Problem("Entity set 'MvcMovieContext.Movie' is null.");
         }
+
+        var movies = from m in _context.Movie
+                     select m;
+
+        if (!String.IsNullOrEmpty(id))
+        {
+            // Ensure Title property is not null before calling Contains
+            movies = movies.Where(s => s.Title != null && s.Title.Contains(id));
+        }
+
+        return View(await movies.ToListAsync());
+    }
+    catch (Exception ex)
+    {
+        // Handle exceptions, log, or return an error view as needed
+        return Problem($"An error occurred: {ex.Message}");
+    }
+}
+
 
 
         // GET: Movies/Create
