@@ -9,14 +9,21 @@ step3
 then,i applied the controllers mvc and followed the steps and created the webpage.
 step4
 here, i started working with tutorial by following steps sequentially.
-step5
+
 
 2024-01-25
 0144
 
-part-a
-firstly i 
+step1
+I did review of all the steos as my one stop was not working then u=i solved that error.
+step2
+i made migration folder then added files in it.
+step3
+made initialcreate.cs directory in migration folder after adding neccessary info.
+step4
 20240125184858_InitialCreate.cs
+
+
 
 2024-02-01
 0145
@@ -36,5 +43,12 @@ step4
 2024-02-08
 0133
 step1
+i did 7th steps and had some errors which i resolved after some research.
+step2
+then i followed every steps and it worked well as it should be.
+step3
+after that, i made github repository and create and push the web application.
+step4
+then i replace the github repository from private to public so it is open and anybody can read and access it.
 
 
